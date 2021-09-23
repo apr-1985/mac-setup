@@ -1,0 +1,26 @@
+- name: Install Golang.
+  block:
+    - name: Download Golang.
+      get_url:
+        url: "https://golang.org/dl/go{{go_version}}.darwin-amd64.pkg"
+        dest: /tmp/go.pkg
+
+    - name: Run the installer.
+      command:
+      args:
+        cmd: "installer -pkg /tmp/go.pkg -target /"
+      become: true
+      register: go_install
+
+    # - name: Clean up
+    #   ansible.builtin.file:
+    #     path: /tmp/go.pkg
+    #     state: absent
+
+    - name: "Show installer output."
+      debug:
+        var: go_install
+        verbosity: 2
+  tags:
+    - golang
+    - never
