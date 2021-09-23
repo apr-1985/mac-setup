@@ -1,4 +1,5 @@
 # mac-setup
+
 Ansible Code to setup Mac environment
 
 ## Prerequisites
@@ -33,10 +34,33 @@ export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
 . ~/.pyenv/versions/3.9.5/bin/virtualenvwrapper.sh
 ```
-## Ansbile 
+
+## Fira Code Theme
+
+[Download](https://github.com/tonsky/FiraCode/releases) and extract.
+In the TTP folder select all and Open and install
+
+## Vscode
+
+Standard install then turn on Setting sync to Elsevier GitHub.
+Check all boxes and then choose merge local
+
+## Ansible
 
 ```bash
 mkvirtualenv ansible
 pip install ansible
 ansible-galaxy collection install community.general
+```
+
+## Running
+
+```bash
+ansible-playbook mac-setup.yml --ask-become-pass
+```
+
+Note: Some Roles have a never tag on them as they are not very idempotent so will need to be specified directly e.g.
+
+```bash
+ansible-playbook mac-setup.yml --tags golang --ask-become-pass
 ```
