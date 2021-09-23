@@ -2,7 +2,7 @@
 - name: Install Kubectl
   community.general.homebrew:
     name: kubectl
-  tags: 
+  tags:
     - kubernetes
     - kubectl
 
@@ -12,6 +12,7 @@
   loop:
     - kubectx
     - derailed/k9s/k9s
-  tags: 
+    - argocd
+  tags:
     - kubernetes
     - kube-extras
