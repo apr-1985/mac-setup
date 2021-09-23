@@ -7,5 +7,6 @@
     - tree
     - warrensbox/tap/tfswitch
     - jq
-  tags: 
+    - coreutils
+  tags:
     - general
