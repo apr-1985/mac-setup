@@ -12,10 +12,10 @@
       become: true
       register: go_install
 
-    # - name: Clean up
-    #   ansible.builtin.file:
-    #     path: /tmp/go.pkg
-    #     state: absent
+    - name: Clean up
+      ansible.builtin.file:
+        path: /tmp/go.pkg
+        state: absent
 
     - name: "Show installer output."
       debug:
