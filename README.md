@@ -64,3 +64,10 @@ Note: Some Roles have a never tag on them as they are not very idempotent so wil
 ```bash
 ansible-playbook mac-setup.yml --tags golang --ask-become-pass
 ```
+
+Current never tags:
+
+- argo
+- golang
+- saml2aws
+- aws_cli
