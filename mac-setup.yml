@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+  - name: message
+    debug:
+      msg: "{{ansible_env.HOME}}"
+  roles:
+  #   - general_software
+  #   - kubernetes
+  #   - aws_cli
+    - starship

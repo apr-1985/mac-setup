@@ -1,0 +1,11 @@
+---
+- name: Install General
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop:
+    - wget
+    - tree
+    - warrensbox/tap/tfswitch
+    - jq
+  tags: 
+    - general

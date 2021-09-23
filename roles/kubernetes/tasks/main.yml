@@ -1,0 +1,17 @@
+---
+- name: Install Kubectl
+  community.general.homebrew:
+    name: kubectl
+  tags: 
+    - kubernetes
+    - kubectl
+
+- name: Install Kubectl extras
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop:
+    - kubectx
+    - derailed/k9s/k9s
+  tags: 
+    - kubernetes
+    - kube-extras
