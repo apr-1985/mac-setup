@@ -10,3 +10,17 @@
     - coreutils
   tags:
     - general
+
+- name: Install git bash completion
+  block:
+    - name: Brew install
+      community.general.homebrew:
+        name: bash-completion
+
+    - name: add bash_profile line
+      ansible.builtin.lineinfile:
+        path: "{{ansible_env.HOME}}/.bash_profile"
+        line: '[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"'
+        state: present
+  tags:
+    - git-bash-completion
