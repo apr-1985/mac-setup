@@ -12,7 +12,33 @@
   loop:
     - kubectx
     - derailed/k9s/k9s
-    - argocd
   tags:
     - kubernetes
     - kube-extras
+
+- name: Install Argo Cli
+  block:
+    - name: Download Argo Cli
+      get_url:
+        url: "https://github.com/argoproj/argo-workflows/releases/download/{{ argo_version}}/argo-darwin-amd64.gz"
+        dest: /tmp/argo-darwin-amd64.gz
+
+    - name: Uncompress
+      command:
+      args:
+        cmd: "gunzip /tmp/argo-darwin-amd64.gz"
+        creates: /tmp/argo-darwin-amd64
+
+    - name: Copy to path
+      copy:
+        src: /tmp/argo-darwin-amd64
+        dest: /usr/local/bin/argo
+        mode: a+x
+
+    - name: Clean Up
+      file:
+        path: /tmp/argo-darwin-amd64
+        state: absent
+  tags:
+    - argo
+    - never
