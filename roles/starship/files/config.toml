@@ -59,9 +59,6 @@ disabled = true
 [perl]
 disabled = true
 
-[cobol]
-disabled = true
-
 [php]
 disabled = true
 
