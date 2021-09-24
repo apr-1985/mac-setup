@@ -16,6 +16,22 @@
     - kubernetes
     - kube-extras
 
+- name: add auto_completion zsh
+  ansible.builtin.lineinfile:
+    path: "{{ansible_env.HOME}}/{{ shell_rc }}"
+    line: "source <(kubectl completion zsh)"
+    state: present
+  when: shell_rc == ".zshrc"
+  tags: kubernetes
+
+- name: add auto_completion bash
+  ansible.builtin.lineinfile:
+    path: "{{ansible_env.HOME}}/{{ shell_rc }}"
+    line: "source <(kubectl completion bash)"
+    state: present
+  when: shell_rc == ".bash_profile"
+  tags: kubernetes
+
 - name: shell_rc alias
   ansible.builtin.lineinfile:
     path: "{{ansible_env.HOME}}/{{ shell_rc }}"
