@@ -58,6 +58,7 @@
       get_url:
         url: "https://github.com/argoproj/argo-workflows/releases/download/{{ argo_version}}/argo-darwin-amd64.gz"
         dest: /tmp/argo-darwin-amd64.gz
+        validate_certs: "{{ validate_certs }}"
 
     - name: Uncompress
       command:

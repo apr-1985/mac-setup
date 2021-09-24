@@ -4,6 +4,7 @@
       get_url:
         url: "https://golang.org/dl/go{{go_version}}.darwin-amd64.pkg"
         dest: /tmp/go.pkg
+        validate_certs: "{{ validate_certs }}"
 
     - name: Run the installer.
       command:
