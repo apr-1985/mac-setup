@@ -19,8 +19,9 @@
 
     - name: add bash_profile line
       ansible.builtin.lineinfile:
-        path: "{{ansible_env.HOME}}/.bash_profile"
+        path: "{{ansible_env.HOME}}/{{ shell_rc }}"
         line: '[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"'
         state: present
   tags:
     - git-bash-completion
+  when: shell_rc == ".bash_profile"

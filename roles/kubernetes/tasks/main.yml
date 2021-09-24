@@ -16,6 +16,26 @@
     - kubernetes
     - kube-extras
 
+- name: shell_rc alias
+  ansible.builtin.lineinfile:
+    path: "{{ansible_env.HOME}}/{{ shell_rc }}"
+    line: "{{ item }}"
+    state: present
+  loop:
+    - "alias k='kubectl'"
+    - "complete -F __start_kubectl k"
+    - "alias kg='kubectl get'"
+    - "alias kgpo='kubectl get pod'"
+    - "alias ka='kubectl apply'"
+    - "alias kaf='kubectl apply --recursive -f'"
+    - "alias kd='kubectl delete'"
+    - "alias kdf='kubectl delete -f'"
+    - "alias klog='kubectl logs'"
+    - "alias klogf='kubectl logs -f'"
+    - "alias kubens='kubectl ns'"
+  tags:
+    - kubernetes
+
 - name: Install Argo Cli
   block:
     - name: Download Argo Cli

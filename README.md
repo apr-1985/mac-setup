@@ -24,7 +24,7 @@ pyenv install 3.9.5
 pyenv global 3.9.5
 ```
 
-Add to `.bash_profile`
+Add to `to .zshrc or .bash_profile`
 
 ```bash
 export PYENV_ROOT="$HOME/.pyenv"

@@ -1,13 +1,13 @@
 - name: Install Starship
   community.general.homebrew:
     name: starship
-  tags: 
+  tags:
     - starship
 
-- name: Add bash_profile command
+- name: Add shell_rc command
   ansible.builtin.lineinfile:
-    path: "{{ansible_env.HOME}}/.bash_profile"
-    line: "eval \"$(starship init bash)\""
+    path: "{{ansible_env.HOME}}/{{ shell_rc }}"
+    line: 'eval "$(starship init bash)"'
     state: present
   tags:
     - starship
@@ -18,4 +18,3 @@
     dest: "{{ansible_env.HOME}}/.config/starship.toml"
   tags:
     - starship
-
