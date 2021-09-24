@@ -1,4 +1,17 @@
 - hosts: localhost
+  pre_tasks:
+    - name: "set shell type zsh"
+      set_fact:
+        shell_name: "zsh"
+      when: shell_rc == ".zshrc"
+      tags: always
+
+    - name: "set shell type bash"
+      set_fact:
+        shell_name: "bash"
+      when: shell_rc == ".bash_profile"
+      tags: always
+
   tasks:
     - name: message
       debug:

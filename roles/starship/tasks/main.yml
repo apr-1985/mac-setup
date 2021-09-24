@@ -7,7 +7,7 @@
 - name: Add shell_rc command
   ansible.builtin.lineinfile:
     path: "{{ansible_env.HOME}}/{{ shell_rc }}"
-    line: 'eval "$(starship init bash)"'
+    line: 'eval "$(starship init {{ shell_name }})"'
     state: present
   tags:
     - starship

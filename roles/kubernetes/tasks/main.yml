@@ -16,20 +16,11 @@
     - kubernetes
     - kube-extras
 
-- name: add auto_completion zsh
+- name: add auto_completion
   ansible.builtin.lineinfile:
     path: "{{ansible_env.HOME}}/{{ shell_rc }}"
-    line: "source <(kubectl completion zsh)"
+    line: "source <(kubectl completion {{ shell_name }})"
     state: present
-  when: shell_rc == ".zshrc"
-  tags: kubernetes
-
-- name: add auto_completion bash
-  ansible.builtin.lineinfile:
-    path: "{{ansible_env.HOME}}/{{ shell_rc }}"
-    line: "source <(kubectl completion bash)"
-    state: present
-  when: shell_rc == ".bash_profile"
   tags: kubernetes
 
 - name: shell_rc alias
@@ -49,6 +40,15 @@
     - "alias klog='kubectl logs'"
     - "alias klogf='kubectl logs -f'"
     - "alias kubens='kubectl ns'"
+  tags:
+    - kubernetes
+
+- name: remove complete line if zsh
+  ansible.builtin.lineinfile:
+    path: "{{ansible_env.HOME}}/{{ shell_rc }}"
+    line: "complete -F __start_kubectl k"
+    state: absent
+  when: shell_name == "zsh"
   tags:
     - kubernetes
 
