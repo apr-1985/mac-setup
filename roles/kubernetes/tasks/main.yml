@@ -6,6 +6,13 @@
     - kubernetes
     - kubectl
 
+- name: Install Helm
+  community.general.homebrew:
+    name: helm
+  tags:
+    - kubernetes
+    - helm
+
 - name: Install Kubectl extras
   community.general.homebrew:
     name: "{{ item }}"
