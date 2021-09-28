@@ -44,6 +44,10 @@ disabled = true
 [kotlin]
 disabled = true
 
+[kubernetes]
+format = '[ns: \($namespace\)](dimmed green) '
+disabled = false
+
 [lua]
 disabled = true
 
@@ -77,6 +81,9 @@ disabled = true
 
 [scala]
 disabled = true
+
+[terraform]
+format = "[$version]($style) "
 
 [username]
 disabled = true
