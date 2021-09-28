@@ -11,6 +11,19 @@
   tags:
     - general
 
+- name: Install openjdk
+  block:
+    - name: openjdk install
+      community.general.homebrew:
+        name: openjdk
+
+    - name: Link file
+      ansible.builtin.file:
+        src: /usr/local/opt/openjdk/libexec/openjdk.jdk
+        dest: /Library/Java/JavaVirtualMachines/openjdk.jdk
+        state: link
+  tags: java
+
 - name: Install git bash completion
   block:
     - name: Brew install
