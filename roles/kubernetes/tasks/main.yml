@@ -19,6 +19,7 @@
   loop:
     - kubectx
     - derailed/k9s/k9s
+    - operator-sdk
   tags:
     - kubernetes
     - kube-extras
