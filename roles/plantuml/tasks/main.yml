@@ -1,0 +1,26 @@
+---
+- name: Install Deps
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop:
+    - libtool
+    - graphviz    
+  tags:
+    - plantuml
+
+- name: Create Folders
+  ansible.builtin.file:
+    path: "{{ansible_env.HOME}}/src/plantuml"
+    state: directory
+    mode: '0755'
+  register: plantuml_dir
+  tags:
+    - plantuml
+
+- name: Download Plantuml.
+  get_url:
+    url: "https://github.com/plantuml/plantuml/releases/download/v{{plantuml_version}}/plantuml-{{plantuml_version}}.jar"
+    dest: plantuml_dir.path
+    validate_certs: "{{ validate_certs }}"
+  tags:
+    - plantuml
