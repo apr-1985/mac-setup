@@ -22,6 +22,7 @@
         src: /usr/local/opt/openjdk/libexec/openjdk.jdk
         dest: /Library/Java/JavaVirtualMachines/openjdk.jdk
         state: link
+      become: true
   tags: java
 
 - name: Install git bash completion
