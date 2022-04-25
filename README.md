@@ -20,8 +20,8 @@ brew update
 brew install openssl readline sqlite3 xz zlib
 brew install pyenv
 
-pyenv install 3.9.5
-pyenv global 3.9.5
+pyenv install 3.9.10
+pyenv global 3.9.10
 ```
 
 Add to `to .zshrc or .bash_profile`
@@ -32,13 +32,13 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
-. ~/.pyenv/versions/3.9.5/bin/virtualenvwrapper.sh
+. ~/.pyenv/versions/3.9.10/bin/virtualenvwrapper.sh
 ```
 
 ## Fira Code Theme
 
 [Download](https://github.com/tonsky/FiraCode/releases) and extract.
-In the TTP folder select all and Open and install
+In the TTF folder select all and Open and install
 
 ## Vscode
 
