@@ -22,6 +22,7 @@ brew install pyenv
 
 pyenv install 3.9.10
 pyenv global 3.9.10
+$(pyenv which python3) -m pip install virtualenvwrapper
 ```
 
 Add to `to .zshrc or .bash_profile`
