@@ -79,6 +79,7 @@
         src: /tmp/argo-darwin-amd64
         dest: /usr/local/bin/argo
         mode: a+x
+      become: true
 
     - name: Clean Up
       file:
