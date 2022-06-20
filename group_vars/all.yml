@@ -1,7 +1,7 @@
 shell_rc: ".zshrc"
 
-go_version: "1.17.1"
-argo_version: "v3.1.12"
+go_version: "1.18.3"
+argo_version: "v3.3.6"
 plantuml_version: "1.2022.4"
 
 validate_certs: no
